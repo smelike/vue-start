@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>DemoDemo</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<head>
+<body>
+	<div id="example">
+		<p>firstName: "{{ firstName }}"</p>
+		<p>lastName: "{{ lastName }}"</p>
+		<p>fullName: "{{ fullName }}"</p>
+	</div>
+</body>
+<script type="text/javascript">
+var vm = new Vue({
+	el: '#example',
+	data: {
+		firstName: 'King',
+		lastName: 'Jesus'
+	},
+	methods: {
+	},
+	computed: {
+		// 计算属性
+		fullName: {
+			// getter
+			get: function () {
+				return this.firstName + this.lastName
+			},
+			set: function (newValue) {
+				var names = newValue.split(' ')
+				this.firstName = names[0]
+				this.lastName = names[names.length - 1]
+			}
+		}
+	}
+});
+	
+</script>
+</html>
