@@ -147,6 +147,38 @@ var vm = new Vue({
 ```
 
 
+### 计算属性的 setter
+
+计算属性默认只有 getter，需要时你也可以提供一个 setter：
+
+```
+// ...
+computed: {
+	fullName: {
+		// getter
+		get: function () {
+			return this.firstName + ' ' + this.lastName
+		},
+		// setter
+		set: function (newValue) {
+			var names = newValue.split(' ')
+			this.firstName = names[0]
+			this.lastName = names[names.lenght - 1]
+		}
+	}
+}
+
+// ...
+```
+
+
+### 侦听器
+
+计算属性在大多数情况下更合适，但有时也需要一个自定义的侦听器。
+
+当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。
+
+
 
 
 
