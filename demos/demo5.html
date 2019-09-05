@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>DemoDemo</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<head>
+<body>
+	<template id="example">
+		<div v-if="Math.random() > 0.5">
+			Now you see me
+		</div>
+		<div v-else>
+			Now you don't
+		</div>
+	</template>
+</body>
+<script>
+var vm = new Vue({
+	el: '#example',
+	data: {}
+})
+</script>
+</html>

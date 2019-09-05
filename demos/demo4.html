@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>DemoDemo</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<head>
+<body id="example">
+	<template v-if="showForm">
+		UserName: <input type="text" name="user_name" />
+	</template>
+	<template v-else>
+		Password: <input type="password" name="password" />
+	</template>
+	<button @click="toggle">Toggle Login</button>
+</body>
+<script type="text/javascript">
+var vm = new Vue({
+	el: '#example',
+	data: {
+		showForm: true
+	}
+});
+	
+</script>
+</html>
