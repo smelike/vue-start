@@ -1,0 +1,13 @@
+列表渲染
+
+
+v-for 指令需要使用 **item in items** 形式的特殊语法。其中 **items** 是源数据数组，而 **item**  是被迭代的数组元素的别名。
+
+
+```
+<ul id="example-1">
+	<li v-for="item in items">
+		{{ item.message }}
+	</li>
+</ul>
+```
