@@ -75,3 +75,114 @@ Vue provides the native **v-bind** attribute (this is known as a Vue directive) 
 We'll use this directive to update the src attributes in our template.
 
 
+### List rendering
+
+Next objective is to render all the submission objects to our view by displaying each submission object as a separate template block.
+
+Render a list of submission objects, use Vue's native **v-for** directive.
+
+
+> v-for directive 
+
+items is a data collection
+item is an alias for every element that is being iterated upon.
+
+```
+v-for = "item in items"
+		  |         | 
+		alias   data collection
+```
+
+
+#### key
+
+specify a key attribute for every iterated element within a rendered v-for list.
+Vue uses the key attribute to create unique bindings for each node's identity.
+
+
+v-bind:key="submission.id"
+
+
+
+#### Sorting
+
+#### Computed properties
+
+Computed properties are used to handle complex calculations of information that need to be displayed in the view.
+
+Below the data property in our Vue instance, we'll introduce a computed property sortedSubmissions that returns a sorted array of submissions:
+
+
+```
+new Vue({
+	el: '#app',
+	data: {
+		submissions: Seed.submissions
+	},
+	computed: {
+		sortedSubmissions () {
+			return this.submissions.sort((a, b)) => {
+				return b.votes - a.votes
+			}
+		}
+	}
+})
+```
+
+## Event handling
+
+The v-on directive is used to create event listeners within the DOM.
+
+> in native JavaScript, attach an event listener 
+
+```
+const ele = document.getElementById('app');
+ele.addEventListener('click', () => console.llog('clicked'))
+
+```
+
+> In Vue, use the v-on:click directive to implement a click handler
+
+
+```
+new Vue({
+	el: '#app',
+	data: {
+		// ...
+	},
+	computed: {
+		// ...
+	},
+	methods: {
+		upvote (submissionId) {
+			const submission = this.submissions.find (
+				submission => submission.id === submissionId
+			);
+			submission.votes++;
+		}
+	}
+})
+
+```
+
+### Reactive state
+
+We need to note an important aspect of Vue here. With a library like Rect, the above method implementation is problematic since state is often treated as immutable. State within Vue, on the other hand, is reactive.
+
+
+Reactive state is one of the key differences that makes Vue unique. State (i.e. data) management is often intuitive and easy to understand since modifying state often directly causes the view to update.
+
+Vue has an unobtrusive system to how data is modified and teh view reacts.
+
+
+Our computed property sortedSubmissions depends on this.submissions, so as the latter changes, so does the former.
+
+
+## Class bindings
+
+Let's add a conditional class that displays a special blue border around a submission when said submission reaches a certain number of votes.
+
+
+
+
+
