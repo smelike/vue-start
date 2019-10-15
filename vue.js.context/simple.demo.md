@@ -4,10 +4,12 @@ Video's code
 <div id="app">
 	<ul>
 		<li v-for="product in products">
-			{{ product.quantity }} {{ product.name }}
+			<input type="number" v-model.number="product.quantity" />
+			{{ product.name }}
 			<span v-if="product.quantity === 0">
 				- OUT OF STOCK
 			</span>
+			<button @click="product.quantity += 1">Add</button>
 		</li>
 	</ul>
 	<h2>Total Inventory: {{ totalProducts }}</h2>
