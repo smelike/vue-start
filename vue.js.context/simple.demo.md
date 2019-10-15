@@ -14,11 +14,14 @@ Video's code
 	const app = new Vue({
 		el: '#app',
 		data: {
-			products: [
-				'Boots',
-				'Jacket',
-				'Hiking Socks'
-			]
+			products: []
+		},
+		created () {
+			fetch('https://api.myjson.com/bins/74163')
+				.then(response => response.json())
+				.then(json => {
+					this.products = json.products
+				})
 		}
 	})
 </script>
