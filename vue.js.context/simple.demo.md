@@ -4,9 +4,13 @@ Video's code
 <div id="app">
 	<ul>
 		<li v-for="product in products">
-			{{ product }}
+			{{ product.quantity }} {{ product.name }}
+			<span v-if="product.quantity === 0">
+				- OUT OF STOCK
+			</span>
 		</li>
 	</ul>
+	<h2>Total Inventory: {{ totalProducts }}</h2>
 </div>
 
 <script src="https://unpkg.com/vue"></script>
@@ -15,6 +19,13 @@ Video's code
 		el: '#app',
 		data: {
 			products: []
+		},
+		computed: {
+			totalProducts () {
+				return this.products.reduce((sum, product) => {
+					return sum + product.quantity
+				}, 0)
+			}
 		},
 		created () {
 			fetch('https://api.myjson.com/bins/74163')
