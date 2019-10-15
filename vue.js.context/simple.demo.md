@@ -2,8 +2,11 @@ Video's code
 
 ```
 <div id="app">
-	<h2>{{ product }} are in stock.</h2>
-	
+	<ul>
+		<li v-for="product in products">
+			{{ product }}
+		</li>
+	</ul>
 </div>
 
 <script src="https://unpkg.com/vue"></script>
@@ -11,10 +14,13 @@ Video's code
 	const app = new Vue({
 		el: '#app',
 		data: {
-			product: 'Boots'
+			products: [
+				'Boots',
+				'Jacket',
+				'Hiking Socks'
+			]
 		}
 	})
-	
 </script>
 
 ```
