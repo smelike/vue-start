@@ -2,7 +2,7 @@ Video's code
 
 ```
 <div id="app">
-	<h2>X are in stock.</h2>
+	<h2>{{ product }} are in stock.</h2>
 	
 </div>
 
@@ -15,8 +15,6 @@ Video's code
 		}
 	})
 	
-	// traditional writing style
-	// var product = 'Boots'
 </script>
 
 ```
